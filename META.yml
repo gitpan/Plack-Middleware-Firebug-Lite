@@ -22,4 +22,4 @@ requires:
   parent: 0
 resources:
   repository: https://github.com/gslin/plack-middleware-firebug-lite-perl.git
-version: 0.2.2
+version: 0.2.3

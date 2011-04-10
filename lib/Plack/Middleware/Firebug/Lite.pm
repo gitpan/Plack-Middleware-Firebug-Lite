@@ -1,7 +1,7 @@
 # ABSTRACT: Plack middleware to insert Firebug Lite code into HTML.
 package Plack::Middleware::Firebug::Lite;
 BEGIN {
-  $Plack::Middleware::Firebug::Lite::VERSION = '0.2.2';
+  $Plack::Middleware::Firebug::Lite::VERSION = '0.2.3';
 }
 use strict;
 use warnings;
@@ -12,7 +12,7 @@ Plack::Middleware::Firebug::Lite - Plack middleware to insert Firebug Lite code 
 
 =head1 VERSION
 
-version 0.2.2
+version 0.2.3
 
 =head1 DESCRIPTION
 
@@ -63,7 +63,7 @@ sub call {
         my $url = encode_entities($self->url, '<>&"');
 
         # Insert Firebug Lite code and replace it.
-        $body =~ s{^(.*)</body\s*>}{$1<script src="$url" type="text/javascript"></script></body>}i;
+        $body =~ s{^(.*)\</body\s*\>}{$1<script src="$url" type="text/javascript"></script></body>}is;
         $res->[2] = [$body];
         $h->set('Content-Length', length $body);
 

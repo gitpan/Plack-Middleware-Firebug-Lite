@@ -29,7 +29,7 @@ my %WriteMakefileArgs = (
     'Plack::Util::Accessor' => '0',
     'parent' => '0'
   },
-  'VERSION' => '0.2.2',
+  'VERSION' => '0.2.3',
   'test' => {
     'TESTS' => 't/*.t'
   }
