@@ -19,8 +19,7 @@ requires:
   HTML::Entities: 0
   Plack::Middleware: 0
   Plack::Util::Accessor: 0
-  namespace::clean: 0
   parent: 0
 resources:
   repository: https://github.com/gslin/plack-middleware-firebug-lite-perl.git
-version: 0.2.1
+version: 0.2.2

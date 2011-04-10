@@ -19,7 +19,7 @@ my %module_build_args = (
     'Gea-Suan Lin <gslin@gslin.org>'
   ],
   'dist_name' => 'Plack-Middleware-Firebug-Lite',
-  'dist_version' => '0.2.1',
+  'dist_version' => '0.2.2',
   'license' => 'bsd',
   'module_name' => 'Plack::Middleware::Firebug::Lite',
   'recommends' => {},
@@ -28,7 +28,6 @@ my %module_build_args = (
     'HTML::Entities' => '0',
     'Plack::Middleware' => '0',
     'Plack::Util::Accessor' => '0',
-    'namespace::clean' => '0',
     'parent' => '0'
   },
   'script_files' => []

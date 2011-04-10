@@ -27,10 +27,9 @@ my %WriteMakefileArgs = (
     'HTML::Entities' => '0',
     'Plack::Middleware' => '0',
     'Plack::Util::Accessor' => '0',
-    'namespace::clean' => '0',
     'parent' => '0'
   },
-  'VERSION' => '0.2.1',
+  'VERSION' => '0.2.2',
   'test' => {
     'TESTS' => 't/*.t'
   }
