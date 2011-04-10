@@ -1,7 +1,7 @@
 # ABSTRACT: Plack middleware to insert Firebug Lite code into HTML.
 package Plack::Middleware::Firebug::Lite;
 BEGIN {
-  $Plack::Middleware::Firebug::Lite::VERSION = '0.1.0';
+  $Plack::Middleware::Firebug::Lite::VERSION = '0.2.1';
 }
 use strict;
 use warnings;
@@ -12,7 +12,7 @@ Plack::Middleware::Firebug::Lite - Plack middleware to insert Firebug Lite code 
 
 =head1 VERSION
 
-version 0.1.0
+version 0.2.1
 
 =head1 DESCRIPTION
 
@@ -36,8 +36,8 @@ Currently it will check if Content-Type is C<text/html>.
 
 use parent 'Plack::Middleware';
 
+use HTML::Entities;
 use Plack::Util::Accessor qw/url/;
-use namespace::autoclean;
 
 sub call {
     my ($self, $env) = @_;
@@ -60,9 +60,10 @@ sub call {
         Plack::Util::foreach($res->[2], sub { push @$body, $_[0]; });
         $body = join '', @$body;
 
+        my $url = encode_entities($self->url, '<>&"');
+
         # Insert Firebug Lite code and replace it.
-        my $url = $self->url;
-        $body =~ s{^(.*)</body\s*>}{\1<script src="$url" type="text/javascript"></script></body>}i;
+        $body =~ s{^(.*)</body\s*>}{$1<script src="$url" type="text/javascript"></script></body>}i;
         $res->[2] = [$body];
         $h->set('Content-Length', length $body);
 
@@ -74,6 +75,8 @@ sub prepare_app {
     my $self = shift;
     $self->url('//getfirebug.com/firebug-lite.js') unless defined $self->url;
 }
+
+use namespace::clean;
 
 =head1 AUTHOR
 

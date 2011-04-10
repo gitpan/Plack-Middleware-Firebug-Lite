@@ -1,7 +1,7 @@
 
 
 This archive contains the distribution Plack-Middleware-Firebug-Lite,
-version 0.1.0:
+version 0.2.1:
 
   Plack middleware to insert Firebug Lite code into HTML.
 

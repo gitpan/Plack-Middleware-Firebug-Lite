@@ -24,12 +24,13 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'bsd',
   'NAME' => 'Plack::Middleware::Firebug::Lite',
   'PREREQ_PM' => {
+    'HTML::Entities' => '0',
     'Plack::Middleware' => '0',
     'Plack::Util::Accessor' => '0',
-    'namespace::autoclean' => '0',
+    'namespace::clean' => '0',
     'parent' => '0'
   },
-  'VERSION' => '0.1.0',
+  'VERSION' => '0.2.1',
   'test' => {
     'TESTS' => 't/*.t'
   }
